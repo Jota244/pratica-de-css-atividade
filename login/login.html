@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<title>Login V2</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="robots" content="noindex, follow">
+	
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		
+		body {
+			font-family: 'Arial', sans-serif;
+			background: #f5f5f5;
+			min-height: 100vh;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		
+		.limiter {
+			width: 100%;
+			max-width: 400px;
+			padding: 20px;
+		}
+		
+		.wrap-login100 {
+			background: white;
+			border-radius: 10px;
+			padding: 60px 50px;
+			box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+		}
+		
+		.login100-form-title {
+			text-align: center;
+			font-size: 28px;
+			font-weight: bold;
+			color: #333;
+			margin-bottom: 30px;
+			display: block;
+		}
+		
+		.login100-form-title.p-b-48 {
+			font-size: 40px;
+			margin-bottom: 30px;
+		}
+		
+		.wrap-input100 {
+			position: relative;
+			margin-bottom: 35px;
+		}
+		
+		.input100 {
+			width: 100%;
+			padding: 15px 0;
+			border: none;
+			border-bottom: 1px solid #e1e1e1;
+			font-size: 16px;
+			background: transparent;
+			transition: all 0.3s ease;
+		}
+		
+		.input100:focus {
+			outline: none;
+			border-bottom-color: #333;
+		}
+		
+		.focus-input100 {
+			position: absolute;
+			top: 15px;
+			left: 0;
+			color: #999;
+			transition: all 0.3s ease;
+			pointer-events: none;
+		}
+		
+		.input100:focus + .focus-input100,
+		.input100:not(:placeholder-shown) + .focus-input100 {
+			top: -8px;
+			left: 0;
+			font-size: 12px;
+			color: #333;
+			background: white;
+			padding: 0 5px;
+		}
+		
+		.btn-show-pass {
+			position: absolute;
+			right: 0;
+			top: 50%;
+			transform: translateY(-50%);
+			cursor: pointer;
+			color: #999;
+			transition: color 0.3s ease;
+			width: 20px;
+			height: 20px;
+			border-radius: 50%;
+			background: #e1e1e1;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 12px;
+		}
+		
+		.btn-show-pass:hover {
+			color: #667eea;
+		}
+		
+		.container-login100-form-btn {
+			margin: 40px 0;
+		}
+		
+		.wrap-login100-form-btn {
+			position: relative;
+		}
+		
+		.login100-form-btn {
+			width: 100%;
+			background: linear-gradient(90deg, #4285f4 0%, #9c27b0 100%);
+			color: white;
+			border: none;
+			padding: 15px;
+			border-radius: 25px;
+			font-size: 16px;
+			font-weight: bold;
+			cursor: pointer;
+			transition: transform 0.3s ease;
+			text-transform: uppercase;
+		}
+		
+		.login100-form-btn:hover {
+			transform: translateY(-2px);
+		}
+		
+		.text-center {
+			text-align: center;
+			margin-top: 40px;
+		}
+		
+		.txt1 {
+			color: #666;
+			font-size: 14px;
+		}
+		
+		.txt2 {
+			color: #667eea;
+			text-decoration: none;
+			font-weight: bold;
+			margin-left: 5px;
+		}
+		
+		.txt2:hover {
+			text-decoration: underline;
+		}
+		
+		.error {
+			color: #e74c3c;
+			font-size: 12px;
+			margin-top: 5px;
+		}
+		
+		.input100.error {
+			border-color: #e74c3c;
+		}
+		
+		.icon-container {
+			text-align: center;
+			margin-bottom: 40px;
+		}
+		
+		.icon {
+			width: 60px;
+			height: 60px;
+			background: black;
+			border-radius: 8px;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 24px;
+			font-weight: bold;
+			color: white;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form class="login100-form" id="loginForm">
+					<span class="login100-form-title p-b-26">
+						Welcome
+					</span>
+					<div class="icon-container">
+						<div class="icon">A</div>
+					</div>
+
+					<div class="wrap-input100">
+						<input class="input100" type="email" name="email" id="email" placeholder=" " required>
+						<span class="focus-input100">Email</span>
+						<div class="error" id="emailError"></div>
+					</div>
+
+					<div class="wrap-input100">
+						<span class="btn-show-pass" onclick="togglePassword()">
+							👁
+						</span>
+						<input class="input100" type="password" name="password" id="password" placeholder=" " required>
+						<span class="focus-input100">Password</span>
+						<div class="error" id="passwordError"></div>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<div class="wrap-login100-form-btn">
+							<button class="login100-form-btn" type="submit">
+								LOGIN
+							</button>
+						</div>
+					</div>
+
+					<div class="text-center p-t-115">
+						<span class="txt1">
+							Don't have an account?
+						</span>
+
+						<a class="txt2" href="#" onclick="alert('Funcionalidade em desenvolvimento')">
+							Sign Up
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+	<script>
+		// Função para alternar visibilidade da senha
+		function togglePassword() {
+			const passwordInput = document.getElementById('password');
+			const showPassBtn = document.querySelector('.btn-show-pass');
+			
+			if (passwordInput.type === 'password') {
+				passwordInput.type = 'text';
+				showPassBtn.innerHTML = '👁';
+			} else {
+				passwordInput.type = 'password';
+				showPassBtn.innerHTML = '👁';
+			}
+		}
+
+		// Validação do formulário
+		function validateEmail(email) {
+			const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+			return emailRegex.test(email);
+		}
+
+		function showError(fieldId, message) {
+			const errorDiv = document.getElementById(fieldId + 'Error');
+			const inputField = document.getElementById(fieldId);
+			
+			errorDiv.textContent = message;
+			inputField.classList.add('error');
+		}
+
+		function clearError(fieldId) {
+			const errorDiv = document.getElementById(fieldId + 'Error');
+			const inputField = document.getElementById(fieldId);
+			
+			errorDiv.textContent = '';
+			inputField.classList.remove('error');
+		}
+
+		// Event listeners para validação em tempo real
+		document.getElementById('email').addEventListener('blur', function() {
+			const email = this.value.trim();
+			if (email && !validateEmail(email)) {
+				showError('email', 'Por favor, insira um email válido');
+			} else {
+				clearError('email');
+			}
+		});
+
+		document.getElementById('password').addEventListener('blur', function() {
+			const password = this.value.trim();
+			if (password && password.length < 6) {
+				showError('password', 'A senha deve ter pelo menos 6 caracteres');
+			} else {
+				clearError('password');
+			}
+		});
+
+		// Validação no envio do formulário
+		document.getElementById('loginForm').addEventListener('submit', function(e) {
+			e.preventDefault();
+			
+			const email = document.getElementById('email').value.trim();
+			const password = document.getElementById('password').value.trim();
+			
+			let isValid = true;
+
+			// Validar email
+			if (!email) {
+				showError('email', 'Email é obrigatório');
+				isValid = false;
+			} else if (!validateEmail(email)) {
+				showError('email', 'Por favor, insira um email válido');
+				isValid = false;
+			} else {
+				clearError('email');
+			}
+
+			// Validar senha
+			if (!password) {
+				showError('password', 'Senha é obrigatória');
+				isValid = false;
+			} else if (password.length < 6) {
+				showError('password', 'A senha deve ter pelo menos 6 caracteres');
+				isValid = false;
+			} else {
+				clearError('password');
+			}
+
+			if (isValid) {
+				// Simular login (aqui você faria a requisição real para o servidor)
+				alert('Login realizado com sucesso!');
+				console.log('Dados do login:', { email, password });
+			}
+		});
+
+		// Limpar erros quando o usuário começar a digitar
+		document.getElementById('email').addEventListener('input', function() {
+			if (this.classList.contains('error')) {
+				clearError('email');
+			}
+		});
+
+		document.getElementById('password').addEventListener('input', function() {
+			if (this.classList.contains('error')) {
+				clearError('password');
+			}
+		});
+	</script>
+</body>
+</html>
