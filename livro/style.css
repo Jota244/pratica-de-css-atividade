@@ -1,0 +1,119 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: white;
+  color: #333;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Título da atividade */
+.titulo-atividade {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.instrucoes {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+/* Header azul */
+header {
+  background-color: #2C4A6B;
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+  margin-bottom: 30px;
+}
+
+header h2 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Cards dos livros */
+.livro {
+  background-color: white;
+  border: 1px solid #E0E0E0;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+/* Imagens dos livros */
+.livro img {
+  width: 100px;
+  height: 150px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* Descrição dos livros */
+.descricao {
+  flex: 1;
+}
+
+.descricao h3 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.descricao .autor {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.descricao .sinopse {
+  font-size: 14px;
+  color: #777;
+  line-height: 1.5;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  .container {
+    padding: 15px;
+  }
+  
+  .livro {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+  
+  .livro img {
+    width: 80px;
+    height: 120px;
+    margin: 0 auto;
+  }
+  
+  .titulo-atividade {
+    font-size: 20px;
+  }
+  
+  header h2 {
+    font-size: 20px;
+  }
+}
